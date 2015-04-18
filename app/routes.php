@@ -16,7 +16,3 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/test', function()
-{
-    return "OK, tole ti vse dela. <br>Get to work!";
-});
