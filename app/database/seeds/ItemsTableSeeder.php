@@ -12,15 +12,18 @@ class ItemsTableSeeder extends Seeder {
         $items = array(
             array(
                 'id'         => 1,
-                'item'  => 'Go to the post office!'
+                'item'  => 'First item on the list!',
+                'done' => 0
             ),
             array(
                  'id'         => 2,
-                'item'  => 'Pick up Karen at 5!'
+                'item'  => 'Second item on the list!',
+                'done' => 0
             ),
             array(
                  'id'         => 3,
-                'item'  => 'Buy a gift for Stacy.'
+                'item'  => 'A completed item on the list',
+                'done' => 1
             )
 
         );
@@ -29,6 +32,7 @@ class ItemsTableSeeder extends Seeder {
             $new = new Item();
             $new->id = $item['id'];
             $new->item = $item['item'];
+            $new->done = $item['done'];
             $new->save();
         }
     }

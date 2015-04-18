@@ -17,4 +17,13 @@
 	return View::make('hello');
 });*/
 Route::get('/', 'ItemController@showList');
+Route::get('open_form', 'ItemController@openForm');
+
+Route::post('add_item', 'ItemController@addItem');
+
+View::composer('lists.show_items', function($view)
+{
+    $items = Item::all();
+    $view->with('items', $items);
+});
 
