@@ -4,6 +4,7 @@ var ListCreator = function () {
 
 ListCreator.prototype = {
     addItem: function (module) {
+        var list_item_container = $('.list-item-container');
         var data = module;
         $.ajax({
             type: 'POST',
@@ -15,7 +16,7 @@ ListCreator.prototype = {
             dataType: 'json'
         })
         .success(function (rsp) {
-           console.log(rsp);
+            list_item_container.html(rsp);
         })
         .fail(function (rsp) {
             console.log('Error!!');
@@ -34,14 +35,36 @@ ListCreator.prototype = {
             e.preventDefault();
             var data = $("#input-item").val();
             obj.addItem(data);
+            $(".form-container").hide();
         });
 
     },
 
 
     init: function () {
+        var obj = this;
         this.bind();
+        obj.insertList();
         return this;
+    },
+
+    insertList: function (module) {
+        var list_item_container = $('.list-item-container');
+        $.ajax({
+            type: 'get',
+            url: 'show_items',
+            data: {
+                data: "ok"
+            },
+            timeout: 10000,
+            dataType: 'json'
+        })
+        .success(function (rsp) {
+           list_item_container.html(rsp);
+        })
+        .fail(function (rsp) {
+            console.log('Error!!');
+        });
     }
 
 }

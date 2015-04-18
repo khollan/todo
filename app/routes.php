@@ -17,7 +17,7 @@
 	return View::make('hello');
 });*/
 Route::get('/', 'ItemController@showList');
-Route::get('open_form', 'ItemController@openForm');
+Route::get('show_items', 'ItemController@showItems');
 
 Route::post('add_item', 'ItemController@addItem');
 

@@ -6,8 +6,12 @@ class ItemController extends BaseController {
         return View::make('lists.index');
     }
 
-    public function openForm(){
-        $view = View::make('lists.show_items');
+    public function showItems(){
+        $items = Item::all();
+
+        $view = View::make('lists.show_items')
+        ->with('items', $items);
+
         $view_contents = $view->render();
         return Response::json($view_contents);
     }
@@ -34,8 +38,12 @@ class ItemController extends BaseController {
         else{
 
             $save_item = Item::saveItem($item);
+            $items = Item::all();
+            $view = View::make('lists.show_items')
+            ->with('items', $items);
+            $view_contents = $view->render();
             return Response::json([
-                'success'=>true
+                $view_contents
             ]);
         }
     }

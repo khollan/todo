@@ -9,5 +9,4 @@
     </form>
 </div>
 <div class="list-item-container">
-    @include('lists.show_items')
 </div>
