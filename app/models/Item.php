@@ -15,5 +15,12 @@ class Item extends Eloquent {
      */
     protected $table = 'items';
 
+    public static function saveItem($item)
+    {
+        $new_item = new Item;
+        $new_item->item = $item;
+        $new_item->save();
+    }
+
 
 }

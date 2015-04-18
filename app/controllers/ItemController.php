@@ -13,8 +13,30 @@ class ItemController extends BaseController {
     }
 
     public function addItem(){
-        return Response::json('ok');
+        $item = Input::get('data');
+
+        $validator = Validator::make(
+            array(
+                'item' => $item
+            ),
+            array(
+                'item' => 'required|min:2|max:50'
+            )
+        );
+
+        if ( $validator->fails() ) {
+            $messages = $validator->messages();
+            return Response::json([
+                'success'=>false,
+                'error'=>$validator->errors()->toArray()
+            ]);
+        }
+        else{
+
+            $save_item = Item::saveItem($item);
+            return Response::json([
+                'success'=>true
+            ]);
+        }
     }
-
-
 }
