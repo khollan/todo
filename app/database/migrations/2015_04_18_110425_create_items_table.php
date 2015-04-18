@@ -14,7 +14,7 @@ class CreateItemsTable extends Migration {
 	{
 		Schema::create('items', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('item', 100)->unique();
+			$table->string('item', 100);
 			$table->timestamps();
 		});
 	}
