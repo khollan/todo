@@ -14,7 +14,7 @@ class AddDoneToItemsTable extends Migration {
 	{
 		Schema::table('items', function(Blueprint $table)
 		{
-			$table->integer('done');
+			$table->string('done');
 		});
 	}
 

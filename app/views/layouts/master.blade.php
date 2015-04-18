@@ -2,6 +2,7 @@
     <head>
         <meta charset="utf-8">
        <script src="/assets/javascripts/jquery.min.js"></script>
+       <link rel="stylesheet" type="text/css" href="/assets/stylesheets/todo.css">
         {{-- <script src="/assets/javascripts/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="/assets/stylesheets/ihome.css">
@@ -16,6 +17,7 @@
 
         @section('scripts')
             <script src="/assets/javascripts/todo.js"></script>
+
         @show
     </body>
 </html>

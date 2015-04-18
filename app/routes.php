@@ -20,6 +20,9 @@ Route::get('/', 'ItemController@showList');
 Route::get('show_items', 'ItemController@showItems');
 
 Route::post('add_item', 'ItemController@addItem');
+Route::post('update_item', 'ItemController@updateItem');
+
+
 
 View::composer('lists.show_items', function($view)
 {

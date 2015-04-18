@@ -19,6 +19,7 @@ class Item extends Eloquent {
     {
         $new_item = new Item;
         $new_item->item = $item;
+        $new_item->done = 'unchecked';
         $new_item->save();
     }
 

@@ -38,6 +38,22 @@ ListCreator.prototype = {
             $(".form-container").hide();
         });
 
+        $(".list-item-container").on('change', '.checkbox', function(){
+            var item_id = $(this).data('item-id');
+           if($(this).is(':checked')){
+                var done = 'checked';
+                $(this).parent().removeClass('unchecked');
+                $(this).parent().addClass('checked');
+                obj.updateItem(item_id, done);
+           }
+           else{
+                var done = 'unchecked';
+                $(this).parent().removeClass('checked');
+                $(this).parent().addClass('unchecked');
+                obj.updateItem(item_id, done);
+           }
+        });
+
     },
 
 
@@ -61,6 +77,24 @@ ListCreator.prototype = {
         })
         .success(function (rsp) {
            list_item_container.html(rsp);
+        })
+        .fail(function (rsp) {
+            console.log('Error!!');
+        });
+    },
+
+    updateItem: function (item_id, done) {
+        $.ajax({
+            type: 'POST',
+            url: 'update_item',
+            data: {
+                item_id: item_id,
+                done: done
+            },
+            timeout: 10000,
+            dataType: 'json'
+        })
+        .success(function (rsp) {
         })
         .fail(function (rsp) {
             console.log('Error!!');

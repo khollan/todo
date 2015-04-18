@@ -13,17 +13,17 @@ class ItemsTableSeeder extends Seeder {
             array(
                 'id'         => 1,
                 'item'  => 'First item on the list!',
-                'done' => 0
+                'done' => 'unchecked'
             ),
             array(
                  'id'         => 2,
                 'item'  => 'Second item on the list!',
-                'done' => 0
+                'done' => 'unchecked'
             ),
             array(
                  'id'         => 3,
                 'item'  => 'A completed item on the list',
-                'done' => 1
+                'done' => 'checked'
             )
 
         );

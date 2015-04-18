@@ -10,13 +10,14 @@ class ItemController extends BaseController {
         $items = Item::all();
 
         $view = View::make('lists.show_items')
-        ->with('items', $items);
+            ->with('items', $items);
 
         $view_contents = $view->render();
         return Response::json($view_contents);
     }
 
     public function addItem(){
+        $items = Item::all();
         $item = Input::get('data');
 
         $validator = Validator::make(
@@ -38,13 +39,25 @@ class ItemController extends BaseController {
         else{
 
             $save_item = Item::saveItem($item);
-            $items = Item::all();
+
             $view = View::make('lists.show_items')
-            ->with('items', $items);
+                ->with('items', $items);
             $view_contents = $view->render();
+
             return Response::json([
                 $view_contents
             ]);
         }
+    }
+
+
+    public function updateItem(){
+        $item_id = Input::get('item_id');
+        $done = Input::get('done');
+
+        $item = Item::find($item_id);
+        $item->done = $done;
+        $item->save();
+
     }
 }
