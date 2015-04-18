@@ -37,16 +37,12 @@ class ItemController extends BaseController {
             ]);
         }
         else{
-
             $save_item = Item::saveItem($item);
 
             $view = View::make('lists.show_items')
                 ->with('items', $items);
             $view_contents = $view->render();
-
-            return Response::json([
-                $view_contents
-            ]);
+            return Response::json($view_contents);
         }
     }
 
@@ -58,6 +54,18 @@ class ItemController extends BaseController {
         $item = Item::find($item_id);
         $item->done = $done;
         $item->save();
+    }
 
+    public function deleteItem(){
+        $items = Item::all();
+        $item_id = Input::get('item_id');
+
+        $item = Item::find($item_id);
+        $item->delete();
+
+        $view = View::make('lists.show_items')
+                ->with('items', $items);
+        $view_contents = $view->render();
+        return Response::json($view_contents);
     }
 }

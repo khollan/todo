@@ -21,6 +21,7 @@ Route::get('show_items', 'ItemController@showItems');
 
 Route::post('add_item', 'ItemController@addItem');
 Route::post('update_item', 'ItemController@updateItem');
+Route::post('delete_item', 'ItemController@deleteItem');
 
 
 

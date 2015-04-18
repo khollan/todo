@@ -1,3 +1,11 @@
 .checked span {
     text-decoration: line-through;
 }
+
+.delete{
+    display:none;
+}
+
+.item-wrapper:hover .delete {
+    display: inline-block;
+}

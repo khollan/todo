@@ -3,9 +3,8 @@ var ListCreator = function () {
 }
 
 ListCreator.prototype = {
-    addItem: function (module) {
-        var list_item_container = $('.list-item-container');
-        var data = module;
+    addItem: function (data) {
+        var obj = this;
         $.ajax({
             type: 'POST',
             url: 'add_item',
@@ -16,7 +15,7 @@ ListCreator.prototype = {
             dataType: 'json'
         })
         .success(function (rsp) {
-            list_item_container.html(rsp);
+            obj.list_item_container.html(rsp);
         })
         .fail(function (rsp) {
             console.log('Error!!');
@@ -26,10 +25,6 @@ ListCreator.prototype = {
 
     bind: function () {
         var obj = this;
-
-        $(".show-form-button").on('click', function(){
-            $(".form-container").show();
-        });
 
         $(".form-container").on('submit', '.items-form', function(e){
             e.preventDefault();
@@ -54,6 +49,34 @@ ListCreator.prototype = {
            }
         });
 
+        $(".list-item-container").on('click', '.delete', function(e){
+            var item_id = $(this).data('item-id');
+            obj.deleteItem(item_id);
+        });
+
+        $(".show-form-button").on('click', function(){
+            $(".form-container").show();
+        });
+
+    },
+
+    deleteItem: function(item_id) {
+        var obj = this;
+        $.ajax({
+            type: 'POST',
+            url: 'delete_item',
+            data: {
+                item_id: item_id
+            },
+            timeout: 10000,
+            dataType: 'json'
+        })
+        .success(function (rsp) {
+            obj.list_item_container.html(rsp);
+        })
+        .fail(function (rsp) {
+            console.log('Error!!');
+        });
     },
 
 
@@ -64,8 +87,9 @@ ListCreator.prototype = {
         return this;
     },
 
-    insertList: function (module) {
-        var list_item_container = $('.list-item-container');
+
+    insertList: function () {
+        var obj = this;
         $.ajax({
             type: 'get',
             url: 'show_items',
@@ -76,12 +100,14 @@ ListCreator.prototype = {
             dataType: 'json'
         })
         .success(function (rsp) {
-           list_item_container.html(rsp);
+           obj.list_item_container.html(rsp);
         })
         .fail(function (rsp) {
             console.log('Error!!');
         });
     },
+
+    list_item_container: $('.list-item-container'),
 
     updateItem: function (item_id, done) {
         $.ajax({
