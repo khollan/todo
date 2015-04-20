@@ -24,6 +24,16 @@ class ItemsTableSeeder extends Seeder {
                  'id'         => 3,
                 'item'  => 'A completed item on the list',
                 'done' => 'checked'
+            ),
+            array(
+                 'id'         => 4,
+                'item'  => 'Another completed item on the list',
+                'done' => 'checked'
+            ),
+            array(
+                 'id'         => 5,
+                'item'  => 'This task is not completed',
+                'done' => 'unchecked'
             )
 
         );
