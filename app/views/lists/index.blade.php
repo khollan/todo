@@ -2,13 +2,13 @@
 @section('content')
 <div class="col-xs-1">
 </div>
-<div class="col-xs-10">
+<div class="col-xs-10 contain-all">
     <div class="list-item-container col-xs-12">
     </div>
     <div class="form-container col-xs-12" style="display:none">
         <div class="col-xs-1"></div>
         <form class="items-form col-xs-10" id="add-item" action="add_item" method="POST">
-            <input type="text"  class="col-xs-12" id="input-item" name="item" placeholder="Add item to the list!" autofocus="autofocus">
+            <input type="text"  class="col-xs-12" id="input-item" name="item" placeholder="Add an item to the list!" autofocus>
             <input  type="submit" style="position: absolute; height: 0px; width: 0px; border: none; padding: 0px;"
             hidefocus="true" tabindex="-1">
         </form>

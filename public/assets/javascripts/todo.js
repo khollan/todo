@@ -62,6 +62,7 @@ ListCreator.prototype = {
 
         $(".show-form-button").on('click', function(){
             $(".form-container").show();
+            $("#input-item").focus();
         });
 
     },
