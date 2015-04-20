@@ -4,6 +4,17 @@ html, body {
    /* font-size: 100%;*/
 }
 
+.top-container {
+    padding: 0px;
+    background-color: #f8f8f8;
+
+}
+
+.header-container {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .navbar, .navbar-default {
     background-color: #e7e7e7;
     margin-bottom: 0px;
@@ -46,11 +57,15 @@ html, body {
     color:#5e5e5e;
     font-size: 20px;
     background-color: #e5e5e5;
-    border-radius: 0px;
-    border:0 #f8f8f8 solid;
-     border-width: 1px;
+    border-radius:0px;
+    border-color: #f8f8f8;
+    border-right: none;
+    border-right: none;
+    border-left:none;
+    border-bottom: none;
     text-decoration: none;
 }
+
 
 .items-form{
     border:0 #e7e7e7 solid;

@@ -17,7 +17,7 @@
 </div>
 <div class="col-xs-1">
 </div>
-<button class="btn btn-default  btn-block show-form-button col-md-10">
+<button class="btn btn-default  btn-block show-form-button col-xs-10">
     <span class="glyphicon glyphicon-plus"></span>
     Add An Item To The List!
 </button>

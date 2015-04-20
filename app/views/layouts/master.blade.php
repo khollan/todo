@@ -7,7 +7,13 @@
         <link rel="stylesheet" type="text/css" href="/assets/stylesheets/todo.css">
     </head>
     <body>
-    @include('layouts.header')
+        <div class="col-xs-12 top-container">
+            <div class="col-xs-2"></div>
+            <div class="header-container col-md-8">
+               @include('layouts.header')
+            </div>
+            <div class="col-xs-2"></div>
+        </div>
         <div id="middle" class="col-xs-12">
             @section('container')
             <div class="col-xs-2"></div>
