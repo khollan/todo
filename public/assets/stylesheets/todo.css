@@ -1,6 +1,69 @@
-.checked span {
-    text-decoration: line-through;
+html, body {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
 }
+
+.navbar, .navbar-default {
+    background-color: #e7e7e7;
+    margin-bottom: 0px;
+    border-radius:0px;
+    border-color: #f8f8f8;
+}
+
+.navbar-header {
+    padding-left: 10px;
+}
+
+.navbar-brand {
+    font-size: 25px;
+}
+
+.glyphicon {
+    padding-right:10px;
+}
+
+#middle{
+    background-color: #f8f8f8;
+    position:relative;
+    height: 100%;
+    width: 100%;
+}
+
+.container, .items-form {
+    background-color: #F3ECDA;
+    border:0 #f8f8f8 solid;
+    border-width: 1px;
+    padding: 0;
+}
+
+.btn-default {
+    color:#5e5e5e;
+    font-size: 20px;
+    background-color: #e5e5e5;
+    border-radius: 0px;
+    border:0 #f8f8f8 solid;
+     border-width: 1px;
+    text-decoration: none;
+}
+
+.items-form{
+    border:0 #e7e7e7 solid;
+}
+
+.form-container, .item-wrapper {
+    padding: 0px;
+}
+
+.checked .title {
+    text-decoration: line-through;
+
+}
+
+.title {
+    padding-left: 5px;
+}
+
 
 .delete{
     display:none;
@@ -8,4 +71,18 @@
 
 .item-wrapper:hover .delete {
     display: inline-block;
+}
+
+.item-wrapper:hover {
+    background-color: #e5e5e5;
+}
+
+
+.footer {
+    padding-top: 10px;
+    position: absolute;
+    left:0;
+    width: 100%;
+    height: 40px;
+    text-align: center;
 }

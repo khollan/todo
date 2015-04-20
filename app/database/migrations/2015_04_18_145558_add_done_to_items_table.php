@@ -25,7 +25,10 @@ class AddDoneToItemsTable extends Migration {
 	 */
 	public function down()
 	{
-		$table->dropColumn('done');
+		Schema::table('items', function(Blueprint $table)
+		{
+			$table->dropColumn('done');
+		});
 	}
 
 }

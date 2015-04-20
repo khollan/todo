@@ -1,18 +1,21 @@
 <html>
     <head>
         <meta charset="utf-8">
-       <script src="/assets/javascripts/jquery.min.js"></script>
-       <link rel="stylesheet" type="text/css" href="/assets/stylesheets/todo.css">
-        {{-- <script src="/assets/javascripts/bootstrap.min.js"></script>
+        <script src="/assets/javascripts/jquery.min.js"></script>
+        <script src="/assets/javascripts/bootstrap.min.js"></script>
         <link rel="stylesheet" type="text/css" href="/assets/stylesheets/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="/assets/stylesheets/ihome.css">
-        <link rel="stylesheet" type="text/css" href="/assets/stylesheets/buttons.css">--}}
+        <link rel="stylesheet" type="text/css" href="/assets/stylesheets/todo.css">
     </head>
     <body>
-        @section('container')
-            <div class="container col-sm-10">
+    @include('layouts.header')
+        <div id="middle" class="col-xs-12">
+            @section('container')
+            <div class="col-xs-2"></div>
+            <div class="container col-md-8">
                 @yield('content')
             </div>
+            <div class="col-xs-2"></div>
+        </div>
         @show
 
         @section('scripts')

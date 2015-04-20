@@ -15,10 +15,17 @@ ListCreator.prototype = {
             dataType: 'json'
         })
         .success(function (rsp) {
-            obj.list_item_container.html(rsp);
+            if (rsp.status === 'ok') {
+                obj.list_item_container.html(rsp.html);
+            }
+
         })
         .fail(function (rsp) {
             console.log('Error!!');
+        })
+        .always(function(){
+            $(".form-container").hide();
+            $("#input-item").val("");
         });
     },
 
@@ -30,7 +37,6 @@ ListCreator.prototype = {
             e.preventDefault();
             var data = $("#input-item").val();
             obj.addItem(data);
-            $(".form-container").hide();
         });
 
         $(".list-item-container").on('change', '.checkbox', function(){

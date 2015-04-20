@@ -32,7 +32,7 @@ class ItemController extends BaseController {
         if ( $validator->fails() ) {
             $messages = $validator->messages();
             return Response::json([
-                'success'=>false,
+                'status'=>'error',
                 'error'=>$validator->errors()->toArray()
             ]);
         }
@@ -42,7 +42,11 @@ class ItemController extends BaseController {
             $view = View::make('lists.show_items')
                 ->with('items', $items);
             $view_contents = $view->render();
-            return Response::json($view_contents);
+            return Response::json([
+                'status' => 'ok',
+                'html' => $view_contents
+                ]
+            );
         }
     }
 
@@ -51,17 +55,15 @@ class ItemController extends BaseController {
         $item_id = Input::get('item_id');
         $done = Input::get('done');
 
-        $item = Item::find($item_id);
-        $item->done = $done;
-        $item->save();
+        $update_item = Item::updateItem($item_id, $done);
     }
 
     public function deleteItem(){
         $items = Item::all();
         $item_id = Input::get('item_id');
 
-        $item = Item::find($item_id);
-        $item->delete();
+        $delete_item = Item::deleteItem($item_id);
+
 
         $view = View::make('lists.show_items')
                 ->with('items', $items);
